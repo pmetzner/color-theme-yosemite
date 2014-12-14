@@ -23,17 +23,17 @@
 
 ;;; Code:
 
-(deftheme yosemite "Color theme for Emacs 24 with colors from OS X Yosemite")
+(deftheme yosemite-dark "Color theme for Emacs 24 with colors from OS X Yosemite")
 
 ;; Define colors
-(let  ((*background-mode* 'light)
-       (*border-color* "#232323")
-       (*black* "#232323")
-       (*white* "#FCFCFC")
+(let  ((*background-mode* 'dark)
+       (*border-color* "#2D2D2D")
+       (*black* "#2D2D2D")
+       (*white* "#F7F7F7")
        (*mouse-color* "#BCD5FA")
-       (*red* "#FF5E59")
-       (*blue* "#2CACF2")
-       (*green* "#6CCB47")
+       (*red* "#FF2A67")
+       (*blue* "#75D6FF")
+       (*green* "#62D938")
        (*purple* "#D087E1")
        (*cyan* "#09B9D8")
        (*yellow* "#F5CD3E")
@@ -41,15 +41,16 @@
        (*lightgrey* "#EDEDEC")
        (*midgrey* "#A4A4A5")
        (*darkgrey* "#5A6264")
+       (*pitchgrey* "#343434")
 )
   
 (custom-theme-set-faces
-  'yosemite
-    `(default ((t (:background, *white* :foreground, *black*))))
+  'yosemite-dark
+    `(default ((t (:background, *black* :foreground, *white*))))
     `(ac-candidate-face ((t (:background, *lightgrey* :foreground, *black*))))
     `(ac-selection-face ((t (:background, *mouse-color* :foreground, *black*)))) 
     `(comint-highlight-prompt ((t (:background, *white* :foreground, *black*)))) 
-    `(cursor ((t (:background, *black*))))
+    `(cursor ((t (:background, *white*))))
     `(css-property ((t (:bold t)))) 
     `(css-selector ((t (:foreground, *red*))))
     `(deft-title-face ((t (:bold t))))
@@ -68,7 +69,9 @@
     `(erb-out-face ((t (:background, *lightgrey*)))) 
     `(ess-numbers-face ((t (:foreground, *cyan*))) t)
     `(flx-highlight-face ((t (:inherit font-lock-variable-name-face :underline t))))
-    `(font-latex-bold-face ((((class color) (background light)) (:inherit bold :weight bold))) t)
+    `(flyspell-duplicate ((t (:italic t :foreground, *orange*))))
+    `(font-latex-bold-face ((t (:bold t))) t)
+    `(font-latex-italic-face ((t (:italic t))) t)
     `(font-latex-math-face ((t nil)) t) 
     `(font-latex-sectioning-0-face ((t (:inherit `default :weight bold :foreground, *blue*))) t)
     `(font-latex-sectioning-1-face ((t (:inherit font-latex-sectioning-0-face))) t)
@@ -92,21 +95,21 @@
     `(font-lock-reference-face ((t (nil))))
     `(font-lock-regexp-grouping-backslash ((t (:foreground, *green*))))
     `(font-lock-regexp-grouping-construct ((t (:foreground, *green*))))
-    `(font-lock-string-face ((t (:foreground, *darkgrey*))))
-    `(font-lock-type-face ((t (:foreground, *black* :bold t))))
+    `(font-lock-string-face ((t (:foreground, *lightgrey*))))
+    `(font-lock-type-face ((t (:foreground, *white* :bold t))))
     `(font-lock-other-type-face ((t (:foreground, *blue*))))
     `(font-lock-variable-name-face ((t (:inherit 'default))))
     `(font-lock-warning-face ((t (:foreground, *white* :background, *red*))))
     `(font-lock-exit-face ((t (:foreground, *red*))))
     `(font-lock-color-constant-face ((t (:foreground, *green*))))
     `(font-lock-other-emphasized-face ((t (:bold t :weight bold :foreground, *purple*))))
-    `(fringe ((t (:foreground, *midgrey* :background, *white*))))
+    `(fringe ((t (:foreground, *darkgrey* :background, *black*))))
     `(git-commit-nonempty-second-line-face ((t (:inherit default))))      
-    `(hl-line ((t (:background, *lightgrey*))))
-    `(highlight ((t (:background, *mouse-color*))))
+    `(hl-line ((t (:background, *pitchgrey*))))
+    `(highlight ((t (:background, *mouse-color* :foreground, *black*))))
     `(link ((t (:foreground, *blue* :underline t))))
     `(link-visited ((t (:underline t :foreground, *purple*))))
-    `(linum ((t (:foreground, *lightgrey* :height 0.8))))
+    `(linum ((t (:foreground, *darkgrey* :height 0.8))))
     `(message-cited-text-face ((t (:foreground, *blue*))))
     `(message-header-name-face ((t (:weight bold :foreground, *black*))))
     `(message-header-other-face ((t (:foreground, *blue*))))
@@ -118,15 +121,15 @@
     `(mmm-default-submode-face ((t (:background, *darkgrey*))))
     `(mmm-code-submode-face ((t (:background, *darkgrey*))))
     `(mode-line ((t (:height 1.0
-                     :background , *black*
+                     :background , *pitchgrey*
                      :foreground, *white*
                      :bold t
-                     :box(:line-width 2 :color , *black*)))))
+                     :box(:line-width 2 :color , *pitchgrey*)))))
     `(mode-line-inactive ((t (:height 1.0
-                              :background, *darkgrey*
-                              :foreground, *lightgrey*
-                              :box(:line-width 2 :color, *darkgrey*)))))
-    `(mouse ((t (:background, *mouse-color*))))
+                              :background, *pitchgrey*
+                              :foreground, *darkgrey*
+                              :box(:line-width 2 :color, *pitchgrey*)))))
+    `(mouse ((t (:background, *mouse-color* :foreground, *black*))))
     `(mu4e-flagged-face ((t (:foreground, *red*))))
     `(mu4e-replied-face ((t (:italic t))))
     `(mu4e-unread-face ((t (:inherit `default :weight bold))))
@@ -157,12 +160,12 @@
     `(quack-threesemi-h3-face ((t (:bold t :weight bold))))
     `(quack-threesemi-semi-face ((t (:background, *cyan* :foreground, *cyan*))))
     `(quack-threesemi-text-face ((t (:background, *cyan* :foreground, *cyan*))))
-    `(region ((t (:background, *mouse-color*))))
+    `(region ((t (:background, *mouse-color* :foreground, *black*))))
     `(sh-quoted-exec ((t (:foreground, *purple*))))
-    `(sp-show-pair-match-face ((t (:bold t :foreground, *green* ))))
-    `(sp-show-pair-mismatch-face ((t (:bold t :foreground, *red*))))
-    `(show-paren-match ((t (:bold t :foreground, *green*))))
-    `(show-paren-mismatch ((t (:bold t :foreground, *red*))))
+    `(show-paren-match ((t (:foreground, *green* :bold t))))
+    `(show-paren-mismatch ((t (:foreground, *red* :bold t))))
+    `(sp-show-pair-match-face ((t (:inherit `show-paren-match))))
+    `(sp-show-pair-mismatch-face ((t (:inherit `show-paren-mismatch))))
     `(trailing-whitespace ((t (:background, *red*))))
     `(writegood-duplicates-face ((t (:inherit `default :underline t))))
     `(writegood-passive-voice-face ((t (:inherit `writegood-duplicates-face))))
@@ -173,10 +176,6 @@
   (add-to-list 'custom-theme-load-path
                (file-name-as-directory (file-name-directory load-file-name))))
 
-;; Set ANSII colors in bash
-(setq ansi-color-names-vector
-      [*black* *red* *green* *yellow* *blue* *purple* *cyan* *white*])
-
-(provide 'yosemite)
+(provide 'yosemite-dark)
 
 
